@@ -44,7 +44,7 @@
 
 body {
   margin: 0;
-  background: #2e3135;
+  background: var(--shape-body);
   font-family: 'Open Sans', sans-serif;
   color: var(--text-body);
   min-height: 100vh;
