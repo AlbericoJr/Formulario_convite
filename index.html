@@ -11,384 +11,565 @@
     />
     <link rel="stylesheet" href="style/index.css" />
   </head>
-
   <body>
     <div class="card">
-      <!-- LEFT PANEL -->
-      <aside class="left-panel">
-        <div class="logo-row">
-          <span class="logo-emoji">
-            <img src="assets/Logo.svg" alt="Icone de festa" />
-          </span>
-          <span class="logo-text">Festivite</span>
-          <span class="logo-tagline"
-            >Crie um convite digital para o seu evento</span
-          >
-        </div>
+      <!-- PAINEL ESQUERDO -->
+      <aside class="left-panel" aria-label="Identidade Festivite">
+        <header class="brand">
+          <p class="logo-emoji" aria-hidden="true">🎉</p>
+          <h1>Festivite</h1>
+          <p class="tagline">Crie um convite digital para o seu evento</p>
+        </header>
 
-        <div class="cover-art">
+        <figure class="cover-art" aria-label="Imagem de capa do convite">
           <img
             src="assets/Background.png"
-            alt="Imagem de um pedaço de bolo de festas com uma vela cor de rosa e brando em cima"
+            alt="Ilustração do convite Festivite"
           />
-        </div>
+        </figure>
       </aside>
 
-      <!-- RIGHT PANEL -->
+      <!-- PAINEL DIREITO -->
       <main class="right-panel">
-        <h1 class="page-title">Crie seu convite</h1>
+        <form id="invite-form" novalidate>
+          <h2 class="page-title">Crie seu convite</h2>
 
-        <!-- SOBRE O EVENTO -->
-        <div class="section">
-          <div class="section-head">
-            <img src="assets/icons/calendar.svg" alt="ícone de Calendario" />
-            <h2>Sobre o evento</h2>
-          </div>
-
-          <div class="field">
-            <label>Título</label>
-            <input type="text" placeholder="Nome do evento" />
-          </div>
-
-          <div class="row">
-            <div class="field">
-              <label for="inicio">Início</label>
-              <input id="inicio" name="inicio" type="date" lang="pt-BR" />
-            </div>
-            <div class="field">
-              <label for="fim">Fim</label>
-              <input id="fim" name="fim" type="date" lang="pt-BR" />
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="field">
-              <label>Tipo</label>
-              <div class="segmented">
-                <button class="active" type="button">
-                  <img src="assets/icons/building.svg" alt="Icone de Upload" />
-                  Presencial
-                </button>
-                <button type="button">
-                  <img src="assets/icons/video.svg" alt="Icone de Video" />
-                  Online
-                </button>
-              </div>
-            </div>
+          <!-- SOBRE O EVENTO -->
+          <fieldset class="section">
+            <legend class="section-head">
+              <img src="assets/icons/calendar.svg" alt="" />
+              Sobre o evento
+            </legend>
 
             <div class="field">
-              <label for="local">Local</label>
+              <label for="titulo">Título</label>
               <input
-                id="local"
-                name="local"
+                id="titulo"
+                name="titulo"
                 type="text"
-                placeholder="Link ou endereço"
+                placeholder="Nome do evento"
+                required
               />
+              <span class="error-msg" id="titulo-error" hidden>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 8v5M12 16h.01" />
+                </svg>
+                Campo obrigatório
+              </span>
             </div>
-          </div>
 
-          <div class="field">
-            <label for="description">Descrição</label>
-            <textarea
-              name="description"
-              id="description"
-              cols="30"
-              rows="5"
-              placeholder="Escreva sobre os detalhes do evento"
-            ></textarea>
-          </div>
-        </div>
-
-        <!-- PERSONALIZAÇÃO -->
-        <div class="section">
-          <div class="section-head">
-            <img src="assets/icons/paintbrush-vertical.svg" alt="" />
-            <h2>Personalização</h2>
-          </div>
-
-          <label>Cor principal</label>
-          <div class="swatch-row">
-            <input
-              type="radio"
-              name="cor"
-              value="#59B2FF"
-              class="swatch"
-              style="--swatch: #59b2ff"
-              checked
-            />
-            <input
-              type="radio"
-              name="cor"
-              value="#6A59FF"
-              class="swatch"
-              style="--swatch: #6a59ff"
-            />
-            <input
-              type="radio"
-              name="cor"
-              value="#B259FF"
-              class="swatch"
-              style="--swatch: #b259ff"
-            />
-            <input
-              type="radio"
-              name="cor"
-              value="#F59F9F"
-              class="swatch"
-              style="--swatch: #f59f9f"
-            />
-            <input
-              type="radio"
-              name="cor"
-              value="#FF598B"
-              class="swatch"
-              style="--swatch: #ff598b"
-            />
-            <input
-              type="radio"
-              name="cor"
-              value="#FF5959"
-              class="swatch"
-              style="--swatch: #ff5959"
-            />
-            <input
-              type="radio"
-              name="cor"
-              value="#FF8B59"
-              class="swatch"
-              style="--swatch: #ff8b59"
-            />
-            <input
-              type="radio"
-              name="cor"
-              value="#FFCD59"
-              class="swatch"
-              style="--swatch: #ffcd59"
-            />
-            <input
-              type="radio"
-              name="cor"
-              value="#E1FF59"
-              class="swatch"
-              style="--swatch: #e1ff59"
-            />
-            <input
-              type="radio"
-              name="cor"
-              value="#59FF91"
-              class="swatch"
-              style="--swatch: #59ff91"
-            />
-            <input
-              type="radio"
-              name="cor"
-              value="#59FFF9"
-              class="swatch"
-              style="--swatch: #59fff9"
-            />
-          </div>
-
-          <label>Tema do evento</label>
-          <div class="theme-grid">
-            <div class="theme-item">
-              <div class="theme-thumb">
-                <img src="assets/Image-01.png" alt="" />
+            <div class="row">
+              <div class="field">
+                <label for="inicio">Início</label>
+                <input id="inicio" name="inicio" type="datetime-local" />
               </div>
-              <span>Aniversário</span>
-            </div>
-
-            <div class="theme-item">
-              <div class="theme-thumb">
-                <img src="assets/Image-02.png" alt="" />
-              </div>
-              <span>Infantil</span>
-            </div>
-
-            <div class="theme-item">
-              <div class="theme-thumb">
-                <img src="assets/Image-03.png" alt="" />
-              </div>
-              <span>Formatura</span>
-            </div>
-
-            <div class="theme-item">
-              <div class="theme-thumb">
-                <img src="assets/Image-04.png" alt="" />
-              </div>
-              <span>Casamento</span>
-            </div>
-
-            <div class="theme-item">
-              <div class="theme-thumb">
-                <img src="assets/Image-05.png" alt="" />
-              </div>
-              <span>Chá de bebê</span>
-            </div>
-
-            <div class="theme-item">
-              <div class="theme-thumb">
-                <img src="assets/Image-06.png" alt="" />
-              </div>
-              <span>Chá de panela</span>
-            </div>
-
-            <div class="theme-item">
-              <div class="theme-thumb">
-                <img src="assets/Image-07.png" alt="" />
-              </div>
-              <span>Carnaval</span>
-            </div>
-
-            <div class="theme-item">
-              <div class="theme-thumb">
-                <img src="assets/Image-08.png" alt="" />
-              </div>
-              <span>Páscoa</span>
-            </div>
-
-            <div class="theme-item">
-              <div class="theme-thumb">
-                <img src="assets/Image-09.png" alt="" />
-              </div>
-              <span>São João</span>
-            </div>
-
-            <div class="theme-item">
-              <div class="theme-thumb">
-                <img src="assets/Image-10.png" alt="" />
-              </div>
-              <span>Halloween</span>
-            </div>
-
-            <div class="theme-item">
-              <div class="theme-thumb">
-                <img src="assets/Image-11.png" alt="" />
-              </div>
-              <span>Natal</span>
-            </div>
-
-            <div class="theme-item">
-              <div class="theme-thumb">
-                <img src="assets/Image-12.png" alt="" />
-              </div>
-              <span>Outro</span>
-            </div>
-          </div>
-
-          <div class="custom-row">
-            <div class="switch-field">
-              <label class="field-label">Estilo</label>
-              <div class="switch-wrap">
-                <div class="switch"></div>
-                <span class="switch-label">Escuro</span>
+              <div class="field">
+                <label for="fim">Fim</label>
+                <input id="fim" name="fim" type="datetime-local" />
               </div>
             </div>
-            <div class="file-field">
-              <label class="field-label">Foto de capa</label>
-              <div class="file-input-row">
-                <button class="file-btn" type="button">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.5"
+
+            <div class="row">
+              <div class="field">
+                <span class="field-label" id="tipo-label">Tipo</span>
+                <div
+                  class="segmented"
+                  role="group"
+                  aria-labelledby="tipo-label"
+                >
+                  <input
+                    class="visually-hidden seg-radio"
+                    type="radio"
+                    id="tipo-presencial"
+                    name="tipo"
+                    value="presencial"
+                    checked
+                  />
+                  <label class="seg-btn" for="tipo-presencial">
+                    <img src="assets/icons/building.svg" alt="" />
+                    Presencial
+                  </label>
+                  <input
+                    class="visually-hidden seg-radio"
+                    type="radio"
+                    id="tipo-online"
+                    name="tipo"
+                    value="online"
+                  />
+                  <label class="seg-btn" for="tipo-online">
+                    <img src="assets/icons/video.svg" alt="" />
+                    Online
+                  </label>
+                </div>
+              </div>
+              <div class="field">
+                <label for="local">Local</label>
+                <input
+                  id="local"
+                  name="local"
+                  type="text"
+                  placeholder="Link ou endereço"
+                />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="descricao">Descrição</label>
+              <textarea
+                id="descricao"
+                name="descricao"
+                placeholder="Escreva sobre os detalhes do evento"
+              ></textarea>
+            </div>
+          </fieldset>
+
+          <!-- PERSONALIZAÇÃO -->
+          <fieldset class="section">
+            <legend class="section-head">
+              <img src="assets/icons/paintbrush-vertical.svg" alt="" />
+              Personalização
+            </legend>
+
+            <div class="field">
+              <span class="field-label" id="cor-label">Cor principal</span>
+              <div class="swatch-row" role="group" aria-labelledby="cor-label">
+                <input
+                  class="visually-hidden color-radio"
+                  type="radio"
+                  id="cor-1"
+                  name="cor"
+                  value="#59B2FF"
+                />
+                <label class="swatch swatch-1" for="cor-1"
+                  ><span class="visually-hidden">Azul claro</span></label
+                >
+
+                <input
+                  class="visually-hidden color-radio"
+                  type="radio"
+                  id="cor-2"
+                  name="cor"
+                  value="#6A59FF"
+                />
+                <label class="swatch swatch-2" for="cor-2"
+                  ><span class="visually-hidden">Navy</span></label
+                >
+
+                <input
+                  class="visually-hidden color-radio"
+                  type="radio"
+                  id="cor-3"
+                  name="cor"
+                  value="#B259FF"
+                />
+                <label class="swatch swatch-3" for="cor-3"
+                  ><span class="visually-hidden">Roxo</span></label
+                >
+
+                <input
+                  class="visually-hidden color-radio"
+                  type="radio"
+                  id="cor-4"
+                  name="cor"
+                  value="#FF59F9"
+                />
+                <label class="swatch swatch-4" for="cor-4"
+                  ><span class="visually-hidden">Fúcsia</span></label
+                >
+
+                <input
+                  class="visually-hidden color-radio"
+                  type="radio"
+                  id="cor-5"
+                  name="cor"
+                  value="#FF598B"
+                  checked
+                />
+                <label class="swatch swatch-5" for="cor-5"
+                  ><span class="visually-hidden">Rosa</span></label
+                >
+
+                <input
+                  class="visually-hidden color-radio"
+                  type="radio"
+                  id="cor-6"
+                  name="cor"
+                  value="#FF5959"
+                />
+                <label class="swatch swatch-6" for="cor-6"
+                  ><span class="visually-hidden">Vermelho</span></label
+                >
+
+                <input
+                  class="visually-hidden color-radio"
+                  type="radio"
+                  id="cor-7"
+                  name="cor"
+                  value="#FF8B59"
+                />
+                <label class="swatch swatch-7" for="cor-7"
+                  ><span class="visually-hidden">Laranja</span></label
+                >
+
+                <input
+                  class="visually-hidden color-radio"
+                  type="radio"
+                  id="cor-8"
+                  name="cor"
+                  value="#FFCD59"
+                />
+                <label class="swatch swatch-8" for="cor-8"
+                  ><span class="visually-hidden">Amarelo</span></label
+                >
+
+                <input
+                  class="visually-hidden color-radio"
+                  type="radio"
+                  id="cor-9"
+                  name="cor"
+                  value="#E1FF59"
+                />
+                <label class="swatch swatch-9" for="cor-9"
+                  ><span class="visually-hidden">Lima</span></label
+                >
+
+                <input
+                  class="visually-hidden color-radio"
+                  type="radio"
+                  id="cor-10"
+                  name="cor"
+                  value="#59FF91"
+                />
+                <label class="swatch swatch-10" for="cor-10"
+                  ><span class="visually-hidden">Verde</span></label
+                >
+
+                <input
+                  class="visually-hidden color-radio"
+                  type="radio"
+                  id="cor-11"
+                  name="cor"
+                  value="#59FFF9"
+                />
+                <label class="swatch swatch-11" for="cor-11"
+                  ><span class="visually-hidden">Ciano</span></label
+                >
+              </div>
+            </div>
+
+            <div class="field">
+              <span class="field-label" id="tema-label">Tema do evento</span>
+              <ul class="theme-grid" role="group" aria-labelledby="tema-label">
+                <li>
+                  <input
+                    class="visually-hidden theme-radio"
+                    type="radio"
+                    id="tema-aniversario"
+                    name="tema"
+                    value="aniversario"
+                    checked
+                  />
+                  <label class="theme-item" for="tema-aniversario">
+                    <img class="theme-thumb" src="assets/Image-01.png" alt="" />
+                    <span class="theme-name">Aniversário</span>
+                  </label>
+                </li>
+                <li>
+                  <input
+                    class="visually-hidden theme-radio"
+                    type="radio"
+                    id="tema-infantil"
+                    name="tema"
+                    value="infantil"
+                  />
+                  <label class="theme-item" for="tema-infantil">
+                    <img class="theme-thumb" src="assets/Image-02.png" alt="" />
+                    <span class="theme-name">Infantil</span>
+                  </label>
+                </li>
+                <li>
+                  <input
+                    class="visually-hidden theme-radio"
+                    type="radio"
+                    id="tema-formatura"
+                    name="tema"
+                    value="formatura"
+                  />
+                  <label class="theme-item" for="tema-formatura">
+                    <img class="theme-thumb" src="assets/Image-03.png" alt="" />
+                    <span class="theme-name">Formatura</span>
+                  </label>
+                </li>
+                <li>
+                  <input
+                    class="visually-hidden theme-radio"
+                    type="radio"
+                    id="tema-casamento"
+                    name="tema"
+                    value="casamento"
+                  />
+                  <label class="theme-item" for="tema-casamento">
+                    <img class="theme-thumb" src="assets/Image-04.png" alt="" />
+                    <span class="theme-name">Casamento</span>
+                  </label>
+                </li>
+                <li>
+                  <input
+                    class="visually-hidden theme-radio"
+                    type="radio"
+                    id="tema-cha-bebe"
+                    name="tema"
+                    value="cha-bebe"
+                  />
+                  <label class="theme-item" for="tema-cha-bebe">
+                    <img class="theme-thumb" src="assets/Image-05.png" alt="" />
+                    <span class="theme-name">Chá de bebê</span>
+                  </label>
+                </li>
+                <li>
+                  <input
+                    class="visually-hidden theme-radio"
+                    type="radio"
+                    id="tema-cha-panela"
+                    name="tema"
+                    value="cha-panela"
+                  />
+                  <label class="theme-item" for="tema-cha-panela">
+                    <img class="theme-thumb" src="assets/Image-06.png" alt="" />
+                    <span class="theme-name">Chá de panela</span>
+                  </label>
+                </li>
+                <li>
+                  <input
+                    class="visually-hidden theme-radio"
+                    type="radio"
+                    id="tema-carnaval"
+                    name="tema"
+                    value="carnaval"
+                  />
+                  <label class="theme-item" for="tema-carnaval">
+                    <img class="theme-thumb" src="assets/Image-07.png" alt="" />
+                    <span class="theme-name">Carnaval</span>
+                  </label>
+                </li>
+                <li>
+                  <input
+                    class="visually-hidden theme-radio"
+                    type="radio"
+                    id="tema-pascoa"
+                    name="tema"
+                    value="pascoa"
+                  />
+                  <label class="theme-item" for="tema-pascoa">
+                    <img class="theme-thumb" src="assets/Image-08.png" alt="" />
+                    <span class="theme-name">Páscoa</span>
+                  </label>
+                </li>
+                <li>
+                  <input
+                    class="visually-hidden theme-radio"
+                    type="radio"
+                    id="tema-sao-joao"
+                    name="tema"
+                    value="sao-joao"
+                  />
+                  <label class="theme-item" for="tema-sao-joao">
+                    <img class="theme-thumb" src="assets/Image-09.png" alt="" />
+                    <span class="theme-name">São João</span>
+                  </label>
+                </li>
+                <li>
+                  <input
+                    class="visually-hidden theme-radio"
+                    type="radio"
+                    id="tema-halloween"
+                    name="tema"
+                    value="halloween"
+                  />
+                  <label class="theme-item" for="tema-halloween">
+                    <img class="theme-thumb" src="assets/Image-10.png" alt="" />
+                    <span class="theme-name">Halloween</span>
+                  </label>
+                </li>
+                <li>
+                  <input
+                    class="visually-hidden theme-radio"
+                    type="radio"
+                    id="tema-natal"
+                    name="tema"
+                    value="natal"
+                  />
+                  <label class="theme-item" for="tema-natal">
+                    <img class="theme-thumb" src="assets/Image-11.png" alt="" />
+                    <span class="theme-name">Natal</span>
+                  </label>
+                </li>
+                <li>
+                  <input
+                    class="visually-hidden theme-radio"
+                    type="radio"
+                    id="tema-outro"
+                    name="tema"
+                    value="outro"
+                  />
+                  <label class="theme-item" for="tema-outro">
+                    <img class="theme-thumb" src="assets/Image-12.png" alt="" />
+                    <span class="theme-name">Outro</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+
+            <div class="custom-row">
+              <div class="field">
+                <label class="field-label" for="estilo-escuro">Estilo</label>
+                <div class="switch-wrap">
+                  <input
+                    class="visually-hidden switch-checkbox"
+                    type="checkbox"
+                    id="estilo-escuro"
+                    name="estilo-escuro"
+                  />
+                  <label class="switch" for="estilo-escuro"></label>
+                  <span class="switch-label" id="switch-label-text"
+                    >Escuro</span
                   >
-                    <path
-                      d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"
-                    />
-                  </svg>
-                  Selecionar
-                </button>
-                <span class="file-status">Nenhum arquivo selecionado</span>
+                </div>
+              </div>
+              <div class="field">
+                <label class="field-label" for="foto-capa">Foto de capa</label>
+                <div class="file-input-row">
+                  <label class="file-btn" for="foto-capa">
+                    <img src="assets/icons/upload.svg" alt="" />
+                    Selecionar
+                  </label>
+                  <input
+                    class="visually-hidden"
+                    type="file"
+                    id="foto-capa"
+                    name="foto-capa"
+                    accept="image/*"
+                  />
+                  <span class="file-status" id="file-status"
+                    >Nenhum arquivo selecionado</span
+                  >
+                </div>
               </div>
             </div>
-          </div>
-        </div>
+          </fieldset>
 
-        <!-- DADOS PARA CONTATO -->
-        <div class="section">
-          <div class="section-head">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-            >
-              <rect x="3" y="4" width="18" height="16" rx="2" />
-              <circle cx="9" cy="10" r="2.5" />
-              <path d="M5 18c1-2.5 3-3.5 4-3.5s3 1 4 3.5M15 9h4M15 13h4" />
-            </svg>
-            <h2>Dados para contato</h2>
-          </div>
+          <!-- DADOS PARA CONTATO -->
+          <fieldset class="section">
+            <legend class="section-head">
+              <img src="assets/icons/contact.svg" alt="" />
+              Dados para contato
+            </legend>
 
-          <div class="field error" style="margin-bottom: 18px">
-            <label>Nome</label>
-            <input type="text" placeholder="Nome completo" />
-            <span class="error-msg">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <circle cx="12" cy="12" r="10" />
-                <path d="M12 8v5M12 16h.01" />
-              </svg>
-              Campo obrigatório
-            </span>
-          </div>
-
-          <div class="row" style="margin-bottom: 0">
             <div class="field">
-              <label>E-mail</label>
-              <input type="email" placeholder="exemplo@email.com" />
-            </div>
-            <div class="field">
-              <label>Telefone</label>
-              <input type="tel" placeholder="(99) 99999-9999" />
-            </div>
-          </div>
-        </div>
-
-        <hr class="divider" />
-
-        <div class="check-list">
-          <div class="check-row">
-            <div class="checkbox checked">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="3">
-                <path d="M4 12l6 6L20 6" />
-              </svg>
-            </div>
-            <span
-              >Li e concordo com os <a href="#">Termos e Condições</a> e com a
-              <a href="#">Política de Privacidade</a></span
-            >
-          </div>
-          <div class="check-row">
-            <div class="checkbox"></div>
-            <span>Aceito receber atualizações e promoções por e-mail</span>
-          </div>
-          <div class="check-row">
-            <div class="checkbox"></div>
-            <span>Aceito receber atualizações e promoções por SMS</span>
-          </div>
-        </div>
-
-        <div class="actions">
-          <button class="btn-primary" type="button">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-            >
-              <path
-                d="M3 8l9 6 9-6M3 8v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8M3 8l9-5 9 5"
+              <label for="nome">Nome</label>
+              <input
+                id="nome"
+                name="nome"
+                type="text"
+                placeholder="Nome completo"
+                required
               />
-            </svg>
-            Gerar convite
-          </button>
-        </div>
+              <span class="error-msg" id="nome-error" hidden>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 8v5M12 16h.01" />
+                </svg>
+                Campo obrigatório
+              </span>
+            </div>
+
+            <div class="row no-margin">
+              <div class="field">
+                <label for="email">E-mail</label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="exemplo@email.com"
+                />
+              </div>
+              <div class="field">
+                <label for="telefone">Telefone</label>
+                <input
+                  id="telefone"
+                  name="telefone"
+                  type="tel"
+                  placeholder="(99) 99999-9999"
+                />
+              </div>
+            </div>
+          </fieldset>
+
+          <hr class="divider" />
+
+          <fieldset class="check-list">
+            <legend class="visually-hidden">Consentimentos</legend>
+            <div class="check-row">
+              <input
+                class="checkbox"
+                type="checkbox"
+                id="termos"
+                name="termos"
+                required
+              />
+              <label for="termos"
+                >Li e concordo com os <a href="#">Termos e Condições</a> e com a
+                <a href="#">Política de Privacidade</a></label
+              >
+            </div>
+            <div class="check-row">
+              <input
+                class="checkbox"
+                type="checkbox"
+                id="promo-email"
+                name="promo-email"
+              />
+              <label for="promo-email"
+                >Aceito receber atualizações e promoções por e-mail</label
+              >
+            </div>
+            <div class="check-row">
+              <input
+                class="checkbox"
+                type="checkbox"
+                id="promo-sms"
+                name="promo-sms"
+              />
+              <label for="promo-sms"
+                >Aceito receber atualizações e promoções por SMS</label
+              >
+            </div>
+          </fieldset>
+
+          <div class="actions">
+            <output
+              class="form-status"
+              id="form-status"
+              for="titulo nome termos"
+              hidden
+            ></output>
+            <button class="btn-primary" type="submit">
+              <img src="assets/icons/ticket.svg" alt="" />
+              Gerar convite
+            </button>
+          </div>
+        </form>
       </main>
     </div>
   </body>
